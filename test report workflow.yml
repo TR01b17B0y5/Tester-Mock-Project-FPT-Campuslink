@@ -1,0 +1,432 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: test report workflow
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.5@51583313a5988d5dca405063831ffeeacdc1f2e95f32a8c10b4c281ceef39ebb
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1786203243920-source-1786203258290-target
+      source: '1786203243920'
+      sourceHandle: source
+      target: '1786203258290'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1786203258290--1786203267684-target
+      source: '1786203258290'
+      sourceHandle: source
+      target: '1786203267684'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786203267684--1786203273286-target
+      source: '1786203267684'
+      sourceHandle: source
+      target: '1786203273286'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: total_tc
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: total_tc
+        - default: ''
+          hint: ''
+          label: executed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: executed
+        - default: ''
+          hint: ''
+          label: passed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: passed
+        - default: ''
+          hint: ''
+          label: failed
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: failed
+        - default: ''
+          hint: ''
+          label: blocked
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: blocked
+        - default: ''
+          hint: ''
+          label: bug_critcal
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_critcal
+        - default: ''
+          hint: ''
+          label: bug_minor
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_minor
+        - default: ''
+          hint: ''
+          label: bug_major
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: bug_major
+        - default: ''
+          hint: ''
+          label: failed_list
+          max_length: 5000
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: failed_list
+        - default: ''
+          hint: ''
+          label: exit_criteria
+          max_length: 5000
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: exit_criteria
+        - default: ''
+          hint: ''
+          label: context
+          max_length: 5000
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: context
+        - default: ''
+          hint: ''
+          label: blocked_reason
+          max_length: 5000
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: blocked_reason
+      height: 394
+      id: '1786203243920'
+      position:
+        x: 130
+        y: 168
+      positionAbsolute:
+        x: 130
+        y: 168
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_tokens: 2000
+            temperature: 0.2
+          mode: chat
+          name: gpt-4.1
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: 22152d3e-aadd-406f-a1aa-c14eb3274e7e
+          role: system
+          text: "Prompt (System)\n\nBạn viết phần NHẬN XÉT cho Test Summary Report.\n\
+            \nRÀNG BUỘC TUYỆT ĐỐI:\n- KHÔNG viết bất kỳ con số nào trong output.\n\
+            - Nếu cần nhắc đến số liệu, dùng cách diễn đạt định tính:\n  \"phần lớn\"\
+            , \"một số ít\", \"còn tồn đọng\", \"chưa đạt ngưỡng\".\n- KHÔNG tự tính\
+            \ toán bất cứ gì.\n- KHÔNG tự quyết GỒ/NO-GO. Nếu cần khuyến nghị, ghi\
+            \ rõ:\n  \"ĐỀ XUẤT - cho quyết định của người phụ trách\".\n\nCHỈ VIẾT\
+            \ 3 PHẦN:\n1. Nhận xét tổng quan về chất lượng\n2. Điểm đáng lo ngại nhất\n\
+            3. Rủi ro còn tồn đọng nhưng chưa phát hành\n\nNếu thiếu thông tin để\
+            \ nhận xét -> ghi \"[can bo sung]\".\n\n"
+        - id: 85a48bd4-22d4-4e9a-8212-859526242df2
+          role: user
+          text: 'Prompt (User)
+
+
+            Dữ liệu tham khảo (CHỈ để hiểu bối cảnh, KHÔNG chép số ra):
+
+
+            Test case fail:
+
+            {{{#1786203243920.failed_list#}}
+
+
+            Lý do block:
+
+            {{{#1786203243920.blocked_reason#}}
+
+
+            Tiêu chí thoát:
+
+            {{{#1786203243920.exit_criteria#}}
+
+
+            Bối cảnh:
+
+            {{{#1786203243920.context#}}
+
+
+            '
+        selected: false
+        title: LLM
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786203258290'
+      position:
+        x: 412
+        y: 158
+      positionAbsolute:
+        x: 412
+        y: 158
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: "# TEST SUMMARY REPORT - {{ uc_id }}\r\n\r\n## 1. SO LIEU THUC THI\r\
+          \n\r\n| Chi so | Gia tri |\r\n|---|---|\r\n| Tong test case | {{ total_tc\
+          \ }} |\r\n| Da thuc thi | {{ executed }} |\r\n| Pass | {{ passed }} |\r\n\
+          | Fail | {{ failed_list }} |\r\n| Blocked | {{ blocked_reason }} |\r\n\r\
+          \n## 2. TINH TRANG BUG\r\n\r\n| Muc do | So luong con mo |\r\n|---|---:|\r\
+          \n| Critical | {{ bug_critical }} |\r\n| Major | {{ bug_major }} |\r\n|\
+          \ Minor | {{ bug_minor }} |\r\n\r\n## 3. DANH SACH TEST CASE FAIL\r\n\r\n\
+          {{ failed_list }}\r\n\r\n## 4. TEST CASE BI BLOCK\r\n\r\n{{ blocked_reason\
+          \ }}\r\n\r\n## 5. NHAN XET (AI viet)\r\n\r\n{{ llm_comment }}\r\n\r\n##\
+          \ 6. DANH GIA TIEU CHI THOAT\r\n\r\nTieu chi cua du an:\r\n\r\n{{ exit_criteria\
+          \ }}\r\n\r\n| Tieu chi | Muc tieu | Thuc te | Dat/Khong |\r\n|---|---|---|---|\r\
+          \n| ... | ... | ... | ... |\r\n| ... | ... | ... | ... |\r\n| ... | ...\
+          \ | ... | ... |\r\n\r\n> NGUOI REVIEW TU DIEN bang tren bang cach doi chieu\
+          \ so lieu muc 1-2\r\n\r\n## 7. QUYET DINH\r\n\r\n- [ ] GO - dong y phat\
+          \ hanh\r\n- [ ] NO-GO - chua phat hanh\r\n- [ ] GO with conditions - phat\
+          \ hanh kem dieu kien\r\n\r\nLy do quyet dinh: ______________________________\r\
+          \n\r\nNguoi quyet dinh: __________\r\nNgay: __________\r\n\r\n"
+        title: Template
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1786203243920'
+          - failed_list
+          value_type: string
+          variable: failed_list
+        - value_selector:
+          - '1786203243920'
+          - blocked_reason
+          value_type: string
+          variable: block_reason
+        - value_selector:
+          - '1786203243920'
+          - exit_criteria
+          value_type: string
+          variable: exit_criteria
+        - value_selector:
+          - '1786203243920'
+          - context
+          value_type: string
+          variable: context
+        - value_selector:
+          - '1786203243920'
+          - total_tc
+          value_type: number
+          variable: total_tc
+        - value_selector:
+          - '1786203243920'
+          - executed
+          value_type: number
+          variable: executed
+        - value_selector:
+          - '1786203243920'
+          - passed
+          value_type: number
+          variable: passed
+        - value_selector:
+          - '1786203243920'
+          - failed
+          value_type: number
+          variable: failed
+        - value_selector:
+          - '1786203243920'
+          - blocked
+          value_type: number
+          variable: blocked
+        - value_selector:
+          - '1786203243920'
+          - bug_critcal
+          value_type: number
+          variable: bug_critical
+        - value_selector:
+          - '1786203243920'
+          - bug_major
+          value_type: number
+          variable: bug_major
+        - value_selector:
+          - '1786203243920'
+          - bug_minor
+          value_type: number
+          variable: bug_minor
+        - value_selector:
+          - '1786203243920'
+          - blocked_reason
+          value_type: string
+          variable: blocked_reason
+        - value_selector:
+          - '1786203258290'
+          - text
+          value_type: string
+          variable: llm_comment
+      height: 51
+      id: '1786203267684'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786203267684'
+          - output
+          value_type: string
+          variable: llm_content
+        selected: false
+        title: Output
+        type: end
+      height: 88
+      id: '1786203273286'
+      position:
+        x: 986
+        y: 282
+      positionAbsolute:
+        x: 986
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 320.03030542724275
+      y: 318.80399286981657
+      zoom: 0.37892914162759944
+  rag_pipeline_variables: []

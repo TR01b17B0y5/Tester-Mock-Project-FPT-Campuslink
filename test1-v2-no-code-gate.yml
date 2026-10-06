@@ -1,0 +1,1543 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  icon_type: emoji
+  mode: workflow
+  name: test1-v2-no-code-gate
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/agent:0.0.50@bf1040682cc9e1e5caf9b4670531639c440bf9448025cd5ee0915fdcf7a921f3
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.9.10@4979b8843fa46c3c2143d339f5868f04d9d77166616c00dd9f811a4adfce03ab
+    version: null
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: leslie2046/dify_knowledge:0.0.2@5fba60ef97dc81ebb929b4afc3029246bda86af0f55718ac1b02e14fa85d26fd
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: agent
+      id: 1786025905029-source-1786026022827-target
+      source: '1786025905029'
+      sourceHandle: source
+      target: '1786026022827'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: if-else
+      id: 1786026153461-source-1786026325495-target
+      source: '1786026153461'
+      sourceHandle: source
+      target: '1786026325495'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1786026325495-true-1786026356489-target
+      source: '1786026325495'
+      sourceHandle: 'true'
+      target: '1786026356489'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1786026356489-source-1786026721005-target
+      source: '1786026356489'
+      sourceHandle: source
+      target: '1786026721005'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: 1786026721005-source-1786026510231-target
+      source: '1786026721005'
+      sourceHandle: source
+      target: '1786026510231'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1786026510231-source-1786026791463-target
+      source: '1786026510231'
+      sourceHandle: source
+      target: '1786026791463'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: template-transform
+      id: 1786026791463-source-1786026881084-target
+      source: '1786026791463'
+      sourceHandle: source
+      target: '1786026881084'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786026881084-source-1786027976417-target
+      source: '1786026881084'
+      sourceHandle: source
+      target: '1786027976417'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: template-transform
+      id: 1786026325495-false-1786029000001-target
+      source: '1786026325495'
+      sourceHandle: 'false'
+      target: '1786029000001'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: template-transform
+        targetType: end
+      id: 1786029000001-source-1786029000002-target
+      source: '1786029000001'
+      sourceHandle: source
+      target: '1786029000002'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: agent
+        targetType: llm
+      id: 1786026022827-source-1786026153461-target
+      source: '1786026022827'
+      sourceHandle: source
+      target: '1786026153461'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: requirement
+          max_length: 5000
+          options: []
+          placeholder: ''
+          required: true
+          type: paragraph
+          variable: requirement
+        - default: '10'
+          hint: ''
+          label: max_test_case
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: max_test_case
+        - default: '50'
+          hint: ''
+          label: coverage_threshold
+          options: []
+          placeholder: ''
+          required: true
+          type: number
+          variable: coverage_threshold
+      height: 160
+      id: '1786025905029'
+      position:
+        x: 12.669590322515432
+        y: 236.23402197248612
+      positionAbsolute:
+        x: 12.669590322515432
+        y: 236.23402197248612
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        agent_parameters:
+          instruction:
+            type: constant
+            value: "Bạn là Senior QA/BA. Nhiệm vụ: kiểm tra độ rõ ràng và khả năng\
+              \ kiểm thử của yêu cầu (requirement) được cung cấp.\n\nNGUỒN THÔNG TIN:\n\
+              - \"Yêu cầu\" (requirement): là văn bản người dùng gửi vào, LUÔN có\
+              \ sẵn, KHÔNG cần tool để đọc.\n- \"Knowledge Base\" (testcase knowledge):\
+              \ là tài liệu nội bộ (spec, business rule, test case cũ...), CHỈ truy\
+              \ cập được qua Tool Knowledge Retrieve. Bạn KHÔNG được tự bịa nội dung\
+              \ Knowledge Base nếu chưa tra cứu.\n\nQUY TẮC BẮT BUỘC:\n1. Bạn KHÔNG\
+              \ ĐƯỢC tự trả lời dựa trên kiến thức có sẵn của bạn. Mọi nhận định về\
+              \ business rule, validation, phân quyền... phải được đối chiếu với Knowledge\
+              \ Base qua Tool Knowledge Retrieve.\n\n2. Phải gọi Tool Knowledge Retrieve\
+              \ ĐÚNG 3 lần theo thứ tự sau (không hơn, không kém, trừ khi bị lỗi hệ\
+              \ thống):\n   - Lượt 1 — Query = [từ khóa chính của yêu cầu, ví dụ tên\
+              \ tính năng/mã UC] + \"thuật ngữ actor phạm vi trạng thái\"\n     Mục\
+              \ tiêu: xác định actor, phạm vi, trạng thái liên quan.\n   - Lượt 2\
+              \ — Query = [từ khóa chính của yêu cầu] + [từ khóa mới rút ra từ Observation\
+              \ lượt 1] + \"business rule validation acceptance criteria phân quyền\"\
+              \n     Mục tiêu: tìm rule nghiệp vụ, điều kiện hợp lệ, AC, phân quyền.\n\
+              \   - Lượt 3 — Query = [từ khóa chính của yêu cầu] + [từ khóa mới rút\
+              \ ra từ Observation lượt 2] + \"ngoại lệ dữ liệu biên lỗi tích hợp bảo\
+              \ mật\"\n     Mục tiêu: tìm exception case, dữ liệu biên, lỗi, tích\
+              \ hợp, bảo mật.\n\n3. Mỗi query PHẢI khác với query trước đó — không\
+              \ lặp lại nguyên văn.\n\n4. Nếu 1 lượt tra cứu không trả về thông tin\
+              \ liên quan, KHÔNG lặp lại lượt đó — vẫn tiếp tục sang lượt kế tiếp\
+              \ theo đúng thứ tự, và ghi nhận phần thiếu đó vào \"ambiguities\" hoặc\
+              \ \"assumptions\" ở output cuối.\n\n5. Sau khi hoàn thành đủ 3 lượt\
+              \ (hoặc gặp lỗi tool không thể phục hồi), BẮT BUỘC phải dừng gọi tool\
+              \ và tổng hợp câu trả lời cuối cùng — không được tiếp tục gọi thêm.\n\
+              \n6. Không bịa thông tin không có trong yêu cầu hoặc Knowledge Base.\
+              \ Nếu không tìm thấy thông tin cho 1 mục nào đó, coi đó là ambiguity/assumption,\
+              \ không tự suy diễn.\n\n7. Mỗi vấn đề phát hiện được phải phân vào ĐÚNG\
+              \ 1 trong 4 nhóm:\n   - AMBIGUOUS: mô tả có thể hiểu theo nhiều cách\
+              \ khác nhau.\n   - MISSING: thiếu thông tin cần thiết để viết được test\
+              \ case.\n   - CONFLICTING: 2 phần khác nhau của yêu cầu/Knowledge Base\
+              \ mâu thuẫn nhau.\n   - ASSUMPTION: đang ngầm giả định, chưa được nói\
+              \ rõ ràng.\n   Với AMBIGUOUS/MISSING/CONFLICTING → đưa vào mảng \"ambiguities\"\
+              , field \"category\" phải là đúng 1 trong 3 giá trị: \"AMBIGUOUS\" |\
+              \ \"MISSING\" | \"CONFLICTING\".\n   Với ASSUMPTION → đưa vào mảng \"\
+              assumptions\".\n\n8. Không hiển thị thought/action/observation trong\
+              \ output cuối.\n\nOUTPUT: Chỉ trả JSON hợp lệ, không Markdown, không\
+              \ code block, đúng đúng schema sau:\n{\n  \"requirement_summary\": \"\
+              string\",\n  \"ambiguities\": [\n    {\n      \"issue_id\": \"AMB-001\"\
+              ,\n      \"category\": \"AMBIGUOUS|MISSING|CONFLICTING\",\n      \"\
+              description\": \"string\",\n      \"severity\": \"Critical|High|Medium|Low\"\
+              ,\n      \"clarification_question\": \"string\",\n      \"test_impact\"\
+              : \"string\"\n    }\n  ],\n  \"assumptions\": [\n    {\n      \"assumption_id\"\
+              : \"ASM-001\",\n      \"assumption\": \"string\",\n      \"confirmation_required\"\
+              : true\n    }\n  ],\n  \"gate\": {\n    \"verdict\": \"PASS|NEEDS_CLARIFICATION\"\
+              ,\n    \"reason\": \"string\"\n  }\n}"
+          maximum_iterations:
+            type: constant
+            value: 5
+          model:
+            type: constant
+            value:
+              completion_params:
+                max_output_tokens: 8000
+                temperature: 0.3
+              mode: chat
+              model: gemini-2.5-flash
+              model_type: llm
+              provider: langgenius/gemini/google
+              type: model-selector
+          query:
+            type: constant
+            value: 'YÊU CẦU:
+
+
+              {{#1786025905029.requirement#}}
+
+              '
+          tools:
+            type: constant
+            value:
+            - enabled: true
+              extra:
+                description: List Dify knowledge bases and optionally filter them
+                  by keyword or tags.
+              parameters:
+                keyword:
+                  auto: 1
+                  value: null
+              plugin_id: leslie2046/dify_knowledge
+              provider_name: leslie2046/dify_knowledge/dify_knowledge
+              provider_show_name: leslie2046/dify_knowledge/dify_knowledge
+              settings:
+                include_all:
+                  value:
+                    type: constant
+                    value: null
+                limit:
+                  value:
+                    type: constant
+                    value: 20
+                page:
+                  value:
+                    type: constant
+                    value: 1
+                tag_ids:
+                  value:
+                    type: mixed
+                    value: null
+              tool_description: List Dify knowledge bases and optionally filter them
+                by keyword or tags.
+              tool_label: List Knowledge Bases
+              tool_name: list_datasets
+              type: builtin
+            - enabled: true
+              extra:
+                description: List documents in a Dify knowledge base and optionally
+                  filter them by keyword or status.
+              parameters:
+                dataset_id:
+                  auto: 1
+                  value: null
+                keyword:
+                  auto: 1
+                  value: null
+              plugin_id: leslie2046/dify_knowledge
+              provider_name: leslie2046/dify_knowledge/dify_knowledge
+              provider_show_name: leslie2046/dify_knowledge/dify_knowledge
+              settings:
+                limit:
+                  value:
+                    type: constant
+                    value: 20
+                page:
+                  value:
+                    type: constant
+                    value: 1
+                status:
+                  value:
+                    type: constant
+                    value: null
+              tool_description: List documents in a Dify knowledge base and optionally
+                filter them by keyword or status.
+              tool_label: List Documents
+              tool_name: list_documents
+              type: builtin
+            - enabled: true
+              extra:
+                description: List the available Dify models for a given model type.
+                  Useful for checking text-embedding and rerank models before configuring
+                  a knowledge base.
+              parameters:
+                model_type:
+                  auto: 1
+                  value: null
+              plugin_id: leslie2046/dify_knowledge
+              provider_name: leslie2046/dify_knowledge/dify_knowledge
+              provider_show_name: leslie2046/dify_knowledge/dify_knowledge
+              settings: {}
+              tool_description: List the available Dify models for a given model type.
+                Useful for checking text-embedding and rerank models before configuring
+                a knowledge base.
+              tool_label: List Available Models
+              tool_name: list_available_models
+              type: builtin
+            - enabled: true
+              extra:
+                description: Search a Dify knowledge base and return the most relevant
+                  chunks. Optional retrieval parameters only affect the current request
+                  and are not saved to the knowledge base. Empty optional parameters
+                  use the retrieval settings saved in the knowledge base.
+              parameters:
+                dataset_id:
+                  auto: 0
+                  value:
+                    type: mixed
+                    value: 3526f550-1b69-4ad0-a0f9-690f2d38d793
+                query:
+                  auto: 1
+                  value: null
+              plugin_id: leslie2046/dify_knowledge
+              provider_name: leslie2046/dify_knowledge/dify_knowledge
+              provider_show_name: leslie2046/dify_knowledge/dify_knowledge
+              settings:
+                attachment_ids:
+                  value:
+                    type: mixed
+                    value: null
+                keyword_weight:
+                  value:
+                    type: constant
+                    value: null
+                reranking_enable:
+                  value:
+                    type: constant
+                    value: null
+                reranking_mode:
+                  value:
+                    type: constant
+                    value: null
+                reranking_model_name:
+                  value:
+                    type: mixed
+                    value: null
+                reranking_provider_name:
+                  value:
+                    type: mixed
+                    value: null
+                score_threshold:
+                  value:
+                    type: constant
+                    value: null
+                score_threshold_enabled:
+                  value:
+                    type: constant
+                    value: null
+                search_method:
+                  value:
+                    type: constant
+                    value: null
+                top_k:
+                  value:
+                    type: constant
+                    value: null
+                vector_weight:
+                  value:
+                    type: constant
+                    value: null
+                weight_type:
+                  value:
+                    type: constant
+                    value: null
+              tool_description: Search a Dify knowledge base and return the most relevant
+                chunks. Optional retrieval parameters only affect the current request
+                and are not saved to the knowledge base. Empty optional parameters
+                use the retrieval settings saved in the knowledge base.
+              tool_label: Retrieve Chunks
+              tool_name: retrieve_chunks
+              type: builtin
+        agent_strategy_label: ReAct
+        agent_strategy_name: ReAct
+        agent_strategy_provider_name: langgenius/agent/agent
+        meta:
+          minimum_dify_version: 1.7.0
+          version: 0.0.2
+        output_schema: {}
+        plugin_unique_identifier: langgenius/agent:0.0.42@b7dfdf1acf8a99a33ebb21e7cf5fe6842b5055a5d0264180f167202ea04b54a0
+        selected: false
+        title: Agent
+        tool_node_version: '2'
+        type: agent
+      height: 187
+      id: '1786026022827'
+      position:
+        x: 425.70832833040265
+        y: 263.72076565306344
+      positionAbsolute:
+        x: 425.70832833040265
+        y: 263.72076565306344
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_output_tokens: 10000
+            temperature: 0.1
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 1786026153461-sys
+          role: system
+          text: "Bạn là Senior Test Analyst chuyên Risk-Based Testing.\n\nNhiệm vụ\
+            \ của bạn là sử dụng Requirement và kết quả Ambiguity Analysis để:\n\n\
+            1. Xác định các Business Rule có căn cứ.\n2. Chọn tối đa 3 Business Rule\
+            \ quan trọng nhất dựa trên mức độ ảnh hưởng đến nghiệp vụ, validation,\
+            \ phân quyền hoặc ambiguity.\n3. Đánh giá rủi ro cho từng Business Rule\
+            \ được chọn hoặc AC quan trọng chưa được bao phủ bởi Business Rule.\n\
+            4. Tạo Quality Gate cho workflow.\n\nQUY TẮC BUSINESS RULE\n\n- Chỉ chọn\
+            \ tối đa 3 Business Rule quan trọng nhất.\n- Ưu tiên rule liên quan trực\
+            \ tiếp đến:\n  + risk cao;\n  + ambiguity Critical/High;\n  + validation\
+            \ quan trọng;\n  + business logic;\n  + permission;\n  + dependency.\n\
+            - Không liệt kê rule chỉ mô tả UI thuần túy.\n- rule_type chỉ được là:\n\
+            \  Functional | Validation | Constraint | Dependency | Hidden\n- Không\
+            \ bịa Business Rule.\n- Rule suy luận phải có inferred = true.\n- Rule\
+            \ được xác định trực tiếp từ nguồn phải có inferred = false.\n- Mỗi rule\
+            \ phải có source_id lấy từ Requirement hoặc Knowledge Base.\n- Không tự\
+            \ tạo source_id.\n- Nếu không xác định được source_id, không được bịa.\n\
+            - Description tối đa 20 từ.\n- Description phải mô tả rule, không liệt\
+            \ kê lại danh sách field.\n\nQUY TẮC RISK\n\n- likelihood: High | Medium\
+            \ | Low.\n- impact: High | Medium | Low.\n- risk_level:\n  + High khi\
+            \ likelihood = High và impact = High.\n  + Low khi likelihood = Low và\
+            \ impact = Low.\n  + Medium cho mọi trường hợp còn lại.\n- Mỗi risk bắt\
+            \ buộc có rationale.\n- Ambiguity Critical/High phải làm tăng likelihood\
+            \ khi ambiguity đó có khả năng làm phát sinh lỗi hoặc làm giảm khả năng\
+            \ kiểm thử.\n- Không được tự tăng likelihood nếu ambiguity không có liên\
+            \ hệ trực tiếp với Business Rule hoặc AC đang đánh giá.\n\nQUALITY GATE\n\
+            \nquality_pass = 1\n\nOUTPUT\n\nChỉ trả dữ liệu theo Structured Output\
+            \ schema.\nKhông Markdown.\nKhông giải thích ngoài schema."
+        - id: 1786026153461-usr
+          role: user
+          text: 'YÊU CẦU GỐC:
+
+            {{#1786025905029.requirement#}}
+
+
+            KẾT QUẢ PHÂN TÍCH AMBIGUITY TỪ AGENT:
+
+            {{#1786026022827.text#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              business_rules:
+                items:
+                  additionalProperties: false
+                  properties:
+                    description:
+                      type: string
+                    inferred:
+                      type: string
+                    rule_id:
+                      type: string
+                    rule_type:
+                      type: string
+                    source_id:
+                      type: string
+                  required:
+                  - rule_id
+                  - rule_type
+                  - description
+                  - source_id
+                  - inferred
+                  type: object
+                maxItems: 3
+                type: array
+              coverage_sources:
+                items:
+                  additionalProperties: false
+                  properties:
+                    description:
+                      type: string
+                    source_id:
+                      type: string
+                    source_type:
+                      type: string
+                  required:
+                  - source_id
+                  - source_type
+                  - description
+                  type: object
+                type: array
+              gate:
+                additionalProperties: false
+                properties:
+                  blocking_risk_ids:
+                    items:
+                      type: string
+                    type: array
+                  decision:
+                    type: string
+                  quality_pass:
+                    type: number
+                  reason:
+                    type: string
+                required:
+                - quality_pass
+                - decision
+                - reason
+                - blocking_risk_ids
+                type: object
+              risks:
+                items:
+                  additionalProperties: false
+                  properties:
+                    category:
+                      type: string
+                    impact:
+                      type: string
+                    likelihood:
+                      type: string
+                    rationale:
+                      type: string
+                    related_ambiguity_ids:
+                      items:
+                        type: string
+                      type: array
+                    risk_id:
+                      type: string
+                    risk_level:
+                      type: string
+                    source_id:
+                      type: string
+                    test_focus:
+                      items:
+                        type: string
+                      type: array
+                  required:
+                  - risk_id
+                  - source_id
+                  - category
+                  - likelihood
+                  - impact
+                  - risk_level
+                  - rationale
+                  - related_ambiguity_ids
+                  - test_focus
+                  type: object
+                type: array
+            required:
+            - coverage_sources
+            - business_rules
+            - risks
+            - gate
+            type: object
+        structured_output_enabled: true
+        title: Risk
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786026153461'
+      position:
+        x: 798.8298182794547
+        y: 169.2672294171329
+      positionAbsolute:
+        x: 798.8298182794547
+        y: 169.2672294171329
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: cond-quality-pass-true
+            value: '1'
+            varType: number
+            variable_selector:
+            - '1786026153461'
+            - structured_output
+            - gate
+            - quality_pass
+          id: 'true'
+          logical_operator: and
+        - case_id: 'false'
+          conditions:
+          - comparison_operator: '='
+            id: cond-quality-pass-false
+            value: '0'
+            varType: number
+            variable_selector:
+            - '1786026153461'
+            - structured_output
+            - gate
+            - quality_pass
+          id: 'false'
+          logical_operator: and
+        selected: false
+        title: quality gate
+        type: if-else
+      height: 219
+      id: '1786026325495'
+      position:
+        x: 987.3609841784541
+        y: 282
+      positionAbsolute:
+        x: 987.3609841784541
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_output_tokens: 10000
+            temperature: 0.3
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 1786026356489-sys
+          role: system
+          text: "Bạn là Senior Test Analyst.\n\nNhiệm vụ là xác định Test Conditions\
+            \ từ requirement, business rules, risks\nvà coverage_sources.\n\nTest\
+            \ Condition là một điều kiện/phạm vi kiểm thử ở mức cao, không phải Test\
+            \ Case.\n\nMỗi Test Condition phải:\n- Trace về ít nhất một source_id\
+            \ (AC hoặc BR).\n- Có liên kết risk_ids nếu liên quan rủi ro.\n- Mô tả\
+            \ rõ điều gì cần được kiểm thử.\n- Có expected_behavior ở mức nghiệp vụ.\n\
+            - Không chứa các bước thao tác chi tiết.\n- Không dùng test_case_id.\n\
+            - Không sinh test case, không có trường steps.\n\nTEST DESIGN TECHNIQUES\n\
+            - test_design_techniques: kỹ thuật thiết kế test, chọn 1 hoặc nhiều trong:\n\
+            \  Positive, Negative, Boundary, Validation, Equivalence Partitioning,\n\
+            \  Permission, StateTransition, Integration.\n\nTEST TYPE\n- test_type:\
+            \ loại kiểm thử theo mục tiêu, CHỈ chọn 1 trong 6 giá trị:\n  Functionality,\
+            \ Usability, GUI, Compatibility, Performance, Security.\n\nQUY TRÌNH BẮT\
+            \ BUỘC — SINH THEO ĐÚNG THỨ TỰ SAU (không được đảo thứ tự,\nkhông được\
+            \ sinh xong 1 loại rồi mở rộng thêm nhiều biến thể trước khi\nqua loại\
+            \ tiếp theo):\n\nBước 1 — Security: tối đa 3 test condition (phân quyền\
+            \ theo role, dữ liệu\n  bị mask/PII, truy cập trái phép). Bắt buộc có\
+            \ nếu requirement có nhiều\n  role/dữ liệu nhạy cảm.\nBước 2 — GUI: tối\
+            \ đa 3 test condition (hiển thị đúng field/label/định dạng,\n  breadcrumb,\
+            \ trạng thái ẩn/hiện field theo điều kiện). Bắt buộc có nếu\n  requirement\
+            \ mô tả UI/screen components.\nBước 3 — Functionality: tối đa 4 test condition\
+            \ (luồng chính, luồng phụ,\n  business rule). Bắt buộc có.\nBước 4 — Usability:\
+            \ tối đa 2 test condition, CHỈ nếu requirement có gợi ý\n  về trải nghiệm\
+            \ thao tác/thông báo lỗi. Nếu không có căn cứ, bỏ qua bước này.\nBước\
+            \ 5 — Compatibility: tối đa 2 test condition, CHỈ nếu"
+        - id: 1786026356489-usr
+          role: user
+          text: '{{#1786025905029.requirement#}}
+
+
+            BUSINESS RULES & RISKS:
+
+            {{#1786026153461.text#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              test_conditions:
+                items:
+                  additionalProperties: false
+                  properties:
+                    condition_id:
+                      type: string
+                    condition_type:
+                      type: string
+                    description:
+                      type: string
+                    expected_behavior:
+                      type: string
+                    open_questions:
+                      items:
+                        type: string
+                      type: array
+                    risk_ids:
+                      items:
+                        type: string
+                      type: array
+                    source_ids:
+                      items:
+                        type: string
+                      type: array
+                    test_design_techniques:
+                      items:
+                        type: string
+                      type: array
+                    test_type:
+                      type: string
+                    title:
+                      type: string
+                  required:
+                  - condition_id
+                  - title
+                  - condition_type
+                  - description
+                  - source_ids
+                  - risk_ids
+                  - expected_behavior
+                  - test_design_techniques
+                  - open_questions
+                  - test_type
+                  type: object
+                type: array
+            required:
+            - test_conditions
+            type: object
+        structured_output_enabled: true
+        title: test condition
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786026356489'
+      position:
+        x: 1290
+        y: 275.4
+      positionAbsolute:
+        x: 1290
+        y: 275.4
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            temperature: 0.2
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 1786026721005-sys
+          role: system
+          text: "Bạn là Senior QA Engineer.\n\nSinh Test Cases chi tiết từ Test Conditions\
+            \ được cung cấp.\n\nQUY TẮC\n- Mỗi test case phải trace về đúng một condition_id\
+            \ đầu vào.\n- Giữ nguyên source_ids và risk_ids từ Test Condition tương\
+            \ ứng.\n- Một Test Condition có thể sinh nhiều Test Cases nếu cần bao\
+            \ phủ positive,\n  negative, boundary hoặc alternate flow.\n- Mỗi Test\
+            \ Case phải có preconditions, test_data, steps và expected_result.\n-\
+            \ Mỗi bước phải có action và expected_result rõ ràng, kiểm chứng được.\n\
+            - Không tạo test case không thuộc Test Condition đầu vào.\n-Số lượng testcase\
+            \ của mỗi test_type không vượt quá max_test_cases.\n- Không trả Markdown;\
+            \ chỉ trả theo Structured Output schema.\n\nPRIORITY\nGán priority cho\
+            \ từng test case theo mức rủi ro:\n- P0: chặn release; security, phân\
+            \ quyền nghiêm trọng, mất dữ liệu,\n  sai tài chính hoặc core flow không\
+            \ hoạt động.\n- P1: chức năng quan trọng hoặc liên quan risk High.\n-\
+            \ P2: luồng thông thường hoặc liên quan risk Medium.\n- P3: chức năng\
+            \ phụ, usability hoặc risk Low.\n\nMỗi test case bắt buộc có priority\
+            \ và priority_reason.\npriority_reason phải nêu rõ risk_id hoặc lý do\
+            \ nghiệp vụ dẫn đến mức ưu tiên."
+        - id: 1786026721005-usr
+          role: user
+          text: 'TEST CONDITIONS:
+
+            {{#1786026356489.text#}}
+
+
+            MAX TEST CASE: {{#1786025905029.max_test_case#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              test_cases:
+                items:
+                  additionalProperties: false
+                  properties:
+                    condition_id:
+                      type: string
+                    preconditions:
+                      items:
+                        type: string
+                      type: array
+                    priority:
+                      type: string
+                    priority_reason:
+                      type: string
+                    risk_ids:
+                      items:
+                        type: string
+                      type: array
+                    source_ids:
+                      items:
+                        type: string
+                      type: array
+                    steps:
+                      items:
+                        additionalProperties: false
+                        properties:
+                          action:
+                            type: string
+                          expected_result:
+                            type: string
+                          step_no:
+                            type: number
+                        required:
+                        - step_no
+                        - action
+                        - expected_result
+                        type: object
+                      type: array
+                    test_case_id:
+                      type: string
+                    test_data:
+                      type: string
+                    test_type:
+                      type: string
+                    title:
+                      type: string
+                  required:
+                  - test_case_id
+                  - condition_id
+                  - title
+                  - test_type
+                  - source_ids
+                  - risk_ids
+                  - priority
+                  - priority_reason
+                  - preconditions
+                  - test_data
+                  - steps
+                  type: object
+                type: array
+            required:
+            - test_cases
+            type: object
+        structured_output_enabled: true
+        title: Testcase
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786026721005'
+      position:
+        x: 1596.0628662660415
+        y: 303.8
+      positionAbsolute:
+        x: 1596.0628662660415
+        y: 303.8
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "import json\n\ndef to_object(value):\n    if isinstance(value, str):\n\
+          \        return json.loads(value)\n    return value or {}\n\ndef compact_line(tc:\
+          \ dict) -> str:\n    tc_id = tc.get(\"test_case_id\", \"N/A\")\n    priority\
+          \ = tc.get(\"priority\", \"N/A\")\n    sources = \",\".join(tc.get(\"source_ids\"\
+          , []) or [])\n    risks = \",\".join(tc.get(\"risk_ids\", []) or [])\n \
+          \   title = tc.get(\"title\", \"\")\n    steps = tc.get(\"steps\", []) or\
+          \ []\n    expected = \" ; \".join(s.get(\"expected_result\", \"\") for s\
+          \ in steps)\n    line = f\"{tc_id} | P={priority} | src=[{sources}] | risk=[{risks}]\
+          \ | {title} :: exp: {expected}\"\n    # hard cap per line so a single verbose\
+          \ test case cannot blow up the budget\n    if len(line) > 260:\n       \
+          \ line = line[:257] + \"...\"\n    return line\n\ndef main(risk_result,\
+          \ test_result, coverage_threshold: float) -> dict:\n    risk_data = to_object(risk_result)\n\
+          \    test_data = to_object(test_result)\n\n    sources = risk_data.get(\"\
+          coverage_sources\", [])\n    test_cases = test_data.get(\"test_cases\",\
+          \ [])\n\n    expected_ids = {\n        item.get(\"source_id\")\n       \
+          \ for item in sources\n        if item.get(\"source_id\")\n    }\n\n   \
+          \ referenced_ids = set()\n    for test_case in test_cases:\n        referenced_ids.update(test_case.get(\"\
+          source_ids\", []))\n\n    covered_ids = sorted(expected_ids.intersection(referenced_ids))\n\
+          \    uncovered_ids = sorted(expected_ids.difference(referenced_ids))\n \
+          \   invalid_ids = sorted(referenced_ids.difference(expected_ids))\n\n  \
+          \  coverage_rate = (\n        round((len(covered_ids) / len(expected_ids))\
+          \ * 100, 2)\n        if expected_ids else 100\n    )\n\n    compact_testcases\
+          \ = \"\\n\".join(compact_line(tc) for tc in test_cases)\n\n    return {\n\
+          \        \"coverage_rate\": coverage_rate,\n        \"coverage_pass\": coverage_rate\
+          \ >= float(coverage_threshold),\n        \"covered_source_ids\": covered_ids,\n\
+          \        \"uncovered_source_ids\": uncovered_ids,\n        \"invalid_source_ids\"\
+          : invalid_ids,\n        \"compact_testcases\": compact_testcases,\n    \
+          \    \"test_case_count\": len(test_cases)\n    }"
+        code_language: python3
+        outputs:
+          compact_testcases:
+            children: null
+            type: string
+          coverage_pass:
+            children: null
+            type: boolean
+          coverage_rate:
+            children: null
+            type: number
+          covered_source_ids:
+            children: null
+            type: array[string]
+          invalid_source_ids:
+            children: null
+            type: array[string]
+          test_case_count:
+            children: null
+            type: number
+          uncovered_source_ids:
+            children: null
+            type: array[string]
+        selected: false
+        title: coverage check
+        type: code
+        variables:
+        - value_selector:
+          - '1786026153461'
+          - structured_output
+          value_type: object
+          variable: risk_result
+        - value_selector:
+          - '1786026721005'
+          - structured_output
+          value_type: object
+          variable: test_result
+        - value_selector:
+          - '1786025905029'
+          - coverage_threshold
+          value_type: number
+          variable: coverage_threshold
+      height: 51
+      id: '1786026510231'
+      position:
+        x: 1890
+        y: 333.6
+      positionAbsolute:
+        x: 1890
+        y: 333.6
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params:
+            max_output_tokens: 50000
+            temperature: 0.3
+          mode: chat
+          name: gemini-2.5-flash
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 1786026791463-sys
+          role: system
+          text: 'Bạn đóng vai REVIEWER KHẮT KHE, soi lại bộ test case vừa được tạo.
+
+            Hãy HOÀI NGHI, đừng bảo vệ output.
+
+
+            KIỂM TRA 5 NHÓM VẤN ĐỀ:
+
+            1. HALLUCINATION - có test case nào cho chức năng KHÔNG có trong UC?
+
+            2. TRACEABILITY  - test case nào thiếu/sai trường Source?
+
+            3. COVERAGE      - AC/BR nào CHƯA có test case nào?
+
+            4. PRIORITY      - priority nào gán không hợp lý so với risk?
+
+            5. QUALITY       - Expected Result nào CHƯA ĐO ĐƯỢC?
+
+
+            Với mỗi vấn đề: nêu ID cụ thể + giải thích + đề xuất sửa.
+
+            Nhóm nào không có vấn đề -> ghi "Khong phat hien van de".
+
+            TUYỆT ĐỐI không bịa vấn đề cho đủ số lượng.
+
+
+            CUỐI CÙNG:
+
+            - Bảng Traceability: | AC/BR | Test Case ID | COVERED hay GAP |
+
+            - Tự chấm 1-10 cho chất lượng bộ test case
+
+            - Nêu 3 vấn đề nghiêm trọng nhất
+
+
+            ĐỊNH DẠNG BẮT BUỘC (để không vượt token budget):
+
+            - Mỗi vấn đề chỉ 1 dòng: "- [ID liên quan] mô tả ngắn (tối đa 20 từ) ->
+            đề xuất (tối đa 10 từ)"
+
+            - KHÔNG viết đoạn văn dài giải thích lại ngữ cảnh đã biết.
+
+            - Nếu nhiều test case cùng mắc 1 loại lỗi, gộp chung 1 dòng, liệt kê các
+            ID cách nhau bởi dấu phẩy.
+
+            - Luôn hoàn thành đủ cả 3 phần CUỐI CÙNG (bảng Traceability, điểm 1-10,
+            top 3 vấn đề) trước khi dừng — nếu gần hết token, rút gọn phần liệt kê
+            vấn đề chi tiết để dành chỗ cho 3 phần này.'
+        - id: 1786026791463-usr
+          role: user
+          text: 'BỘ TEST CASE CẦN REVIEW (rút gọn, {{#1786026510231.test_case_count#}}
+            test case):
+
+            {{#1786026510231.compact_testcases#}}
+
+
+            TÀI LIỆU UC GỐC (để đối chiếu):
+
+            {{#1786025905029.requirement#}}
+
+
+            COVERAGE ĐÃ TÍNH SẴN (dùng để đối chiếu nhanh mục 3, không cần tự suy
+            luận lại từ đầu):
+
+            Uncovered: {{#1786026510231.uncovered_source_ids#}}
+
+            Invalid: {{#1786026510231.invalid_source_ids#}}'
+        selected: false
+        structured_output:
+          schema:
+            additionalProperties: false
+            properties:
+              review_notes:
+                items:
+                  additionalProperties: false
+                  properties:
+                    category:
+                      type: string
+                    finding:
+                      type: string
+                    note_id:
+                      type: string
+                    recommendation:
+                      type: string
+                    related_source_ids:
+                      items:
+                        type: string
+                      type: array
+                    related_test_case_ids:
+                      items:
+                        type: string
+                      type: array
+                    severity:
+                      type: string
+                  required:
+                  - note_id
+                  - severity
+                  - category
+                  - related_test_case_ids
+                  - related_source_ids
+                  - finding
+                  - recommendation
+                  type: object
+                type: array
+              review_summary:
+                additionalProperties: false
+                properties:
+                  overall_status:
+                    type: string
+                  quality_score:
+                    type: number
+                  total_issues:
+                    type: number
+                required:
+                - overall_status
+                - quality_score
+                - total_issues
+                type: object
+            required:
+            - review_summary
+            - review_notes
+            type: object
+        structured_output_enabled: false
+        title: AI self review
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1786026791463'
+      position:
+        x: 2186.9685668669795
+        y: 282
+      positionAbsolute:
+        x: 2186.9685668669795
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: '# Test Suite
+
+
+          ## 1. Tóm tắt yêu cầu
+
+
+          {{ requirement }}
+
+
+          ## 2. Business Rules
+
+
+          | ID | Loại | Mô tả | Nguồn | Suy luận |
+
+          |---|---|---|---|---|
+
+          {% for rule in risk.business_rules %}
+
+          | {{ rule.rule_id }} | {{ rule.rule_type }} | {{ rule.description }} | {{
+          rule.source_id }} | {{ rule.inferred }} |
+
+          {% endfor %}
+
+
+          ## 3. Risk Summary
+
+
+          | Risk ID | Source | Likelihood | Impact | Level | Lý do |
+
+          |---|---|---|---|---|---|
+
+          {% for item in risk.risks %}
+
+          | {{ item.risk_id }} | {{ item.source_id }} | {{ item.likelihood }} | {{
+          item.impact }} | {{ item.risk_level }} | {{ item.rationale }} |
+
+          {% endfor %}
+
+
+          ## 4. Quality Gate
+
+
+          - Decision: **{{ risk.gate.decision }}**
+
+          - Reason: {{ risk.gate.reason }}
+
+
+          ## 5. Coverage
+
+
+          - Coverage rate: **{{ coverage_rate }}%**
+
+          - Covered source IDs: {{ covered_source_ids | join(", ") }}
+
+          - Uncovered source IDs: {{ uncovered_source_ids | join(", ") }}
+
+          - Invalid source IDs: {{ invalid_source_ids | join(", ") }}
+
+
+          ## 6. Test Cases theo Test Type
+
+
+          {% for type_group, cases in suite.test_cases | groupby("test_type") %}
+
+          ### {{ type_group }} ({{ cases | length }} test case)
+
+
+          {% for tc in cases %}
+
+          #### {{ tc.test_case_id }} — {{ tc.title }}
+
+
+          - Priority: **{{ tc.priority }}**
+
+          - Priority reason: {{ tc.priority_reason }}
+
+          - Test design technique: {{ tc.test_type }}
+
+          - Source IDs: {{ tc.source_ids | join(", ") }}
+
+          - Risk IDs: {{ tc.risk_ids | join(", ") }}
+
+          - Preconditions: {{ tc.preconditions | join("; ") }}
+
+          - Test data: {{ tc.test_data }}
+
+
+          | Step | Action | Expected result |
+
+          |---|---|---|
+
+          {% for step in tc.steps %}
+
+          | {{ step.step_no }} | {{ step.action }} | {{ step.expected_result }} |
+
+          {% endfor %}
+
+
+          {% endfor %}
+
+          {% endfor %}
+
+          ## 7. AI Self Review
+
+
+          {{ review }}
+
+          '
+        title: ghép markdown
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1786025905029'
+          - requirement
+          value_type: string
+          variable: requirement
+        - value_selector:
+          - '1786026153461'
+          - structured_output
+          value_type: object
+          variable: risk
+        - value_selector:
+          - '1786026721005'
+          - structured_output
+          value_type: object
+          variable: suite
+        - value_selector:
+          - '1786026791463'
+          - text
+          value_type: string
+          variable: review
+        - value_selector:
+          - '1786026510231'
+          - coverage_rate
+          value_type: number
+          variable: coverage_rate
+        - value_selector:
+          - '1786026510231'
+          - covered_source_ids
+          value_type: array[string]
+          variable: covered_source_ids
+        - value_selector:
+          - '1786026510231'
+          - uncovered_source_ids
+          value_type: array[string]
+          variable: uncovered_source_ids
+        - value_selector:
+          - '1786026510231'
+          - invalid_source_ids
+          value_type: array[string]
+          variable: invalid_source_ids
+      height: 51
+      id: '1786026881084'
+      position:
+        x: 2493.031433133021
+        y: 275.4
+      positionAbsolute:
+        x: 2493.031433133021
+        y: 275.4
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786026881084'
+          - output
+          value_type: string
+          variable: output
+        selected: false
+        title: test suite
+        type: end
+      height: 88
+      id: '1786027976417'
+      position:
+        x: 2793.298769776932
+        y: 282
+      positionAbsolute:
+        x: 2793.298769776932
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        selected: false
+        template: '# Test Suite — BLOCKED bởi Quality Gate
+
+
+          ## 1. Yêu cầu gốc
+
+
+          {{ requirement }}
+
+
+          ## 2. Lý do bị chặn
+
+
+          - Decision: **{{ risk.gate.decision }}**
+
+          - Reason: {{ risk.gate.reason }}
+
+          {% if risk.gate.blocking_risk_ids %}
+
+          - Blocking risk IDs: {{ risk.gate.blocking_risk_ids | join(", ") }}
+
+          {% endif %}
+
+
+          ## 3. Business Rules đã xác định
+
+
+          | ID | Loại | Mô tả | Nguồn | Suy luận |
+
+          |---|---|---|---|---|
+
+          {% for rule in risk.business_rules %}
+
+          | {{ rule.rule_id }} | {{ rule.rule_type }} | {{ rule.description }} | {{
+          rule.source_id }} | {{ rule.inferred }} |
+
+          {% endfor %}
+
+
+          ## 4. Risk đã phát hiện
+
+
+          | Risk ID | Source | Likelihood | Impact | Level | Lý do |
+
+          |---|---|---|---|---|---|
+
+          {% for item in risk.risks %}
+
+          | {{ item.risk_id }} | {{ item.source_id }} | {{ item.likelihood }} | {{
+          item.impact }} | {{ item.risk_level }} | {{ item.rationale }} |
+
+          {% endfor %}
+
+
+          ## 5. Phân tích Ambiguity từ Agent (raw)
+
+
+          ```
+
+          {{ agent_raw }}
+
+          ```
+
+
+          > Workflow đã dừng lại trước khi sinh test case để tránh lãng phí token
+          trên một requirement chưa đủ rõ ràng hoặc còn risk High chưa được xử lý.
+          Hãy làm rõ các điểm trên rồi chạy lại.'
+        title: ghép block message
+        type: template-transform
+        variables:
+        - value_selector:
+          - '1786025905029'
+          - requirement
+          value_type: string
+          variable: requirement
+        - value_selector:
+          - '1786026153461'
+          - structured_output
+          value_type: object
+          variable: risk
+        - value_selector:
+          - '1786026022827'
+          - text
+          value_type: string
+          variable: agent_raw
+      height: 51
+      id: '1786029000001'
+      position:
+        x: 1290
+        y: 600
+      positionAbsolute:
+        x: 1290
+        y: 600
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        outputs:
+        - value_selector:
+          - '1786029000001'
+          - output
+          value_type: string
+          variable: output
+        selected: false
+        title: test suite blocked
+        type: end
+      height: 88
+      id: '1786029000002'
+      position:
+        x: 1752.1685920144332
+        y: 575.3503740138061
+      positionAbsolute:
+        x: 1752.1685920144332
+        y: 575.3503740138061
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: 170.76689154683743
+      y: 281.7369260762414
+      zoom: 0.2871745887492588
+  rag_pipeline_variables: []
